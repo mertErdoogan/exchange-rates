@@ -8,7 +8,7 @@ const TableComponent = (props) => {
 
     useEffect(() => {
         axios.get(`https://api.ratesapi.io/api/latest?symbols=USD,GBP,JPY,EUR,DKK&base=TRY`)
-            .then(res =>  console.log("wwww",res)) //setRates(res.data.rates)
+            .then(res =>  setRates(res.data.rates)) 
 
 
     }, []);
