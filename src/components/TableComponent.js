@@ -3,54 +3,49 @@ import axios from 'axios';
 
 const TableComponent = (props) => {
 
+    const countries = [
+        "US",
+        "EU",
+        "JP",
+        "DK",
+        "GB"
+    ];
 
     const [tryRates, setRates] = useState([]);
 
     useEffect(() => {
-        axios.get(`https://api.ratesapi.io/api/latest?symbols=USD,GBP,JPY,EUR,DKK&base=TRY`)
-            .then(res =>  setRates(res.data.rates)) 
+        axios.get(`https://api.ratesapi.io/api/${props.date}?base=TRY&symbols=USD,GBP,JPY,EUR,DKK`)
+            .then(res =>  setRates(res.data.rates))
+
+    }, [props.date]);
 
 
-    }, []);
 
     return(
         <div className="table-block">
 
             <div className="left-block">
-                <div className="left-item">
-                    <p>O</p>
-                </div>
+                {
+                    countries.map((item, index) => <div key={index} className="left-item">
+                        <img src={`http://www.geognos.com/api/en/countries/flag/${item}.png`} alt={item}/>
+                    </div>)
+                }
+
             </div>
             <div className="mid-block">
                 {
                     tryRates && Object.keys(tryRates).map((item, index) => <div key={index} className="mid-item">
-                        <p>{ item }</p>
+                        <span>{ item }</span>
                     </div>)
                 }
             </div>
             <div className="right-block">
                 {
                     tryRates && Object.values(tryRates).map((item, index) => <div key={index} className="right-item">
-                        <p>{ item }</p>
+                        <span>{ item }</span>
                     </div>)
                 }
             </div>
-
-            {/*{*/}
-            {/*    tryRates && Object.values(tryRates).map((item, index) => <div key={index} className="table-block">*/}
-            {/*        <div className="table-item">*/}
-            {/*            <div className="icon-item">*/}
-            {/*                <i>{ item }</i>*/}
-            {/*            </div>*/}
-            {/*            <div className="nation-item">*/}
-            {/*                <p>{ item }</p>*/}
-            {/*            </div>*/}
-            {/*            <div className="rates-item">*/}
-            {/*                <p>{ item }</p>*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*    </div>)*/}
-            {/*}*/}
         </div>
     )
 }
