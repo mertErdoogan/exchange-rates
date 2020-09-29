@@ -9,9 +9,10 @@
 }
 
 .date-select-block {
-  margin: 0 0 50px;
+  width: 50%;
+  margin: 0 auto 150px;
   select {
-    width: 15%;
+    width: 100%;
     height: 50px;
     padding: 0 10px 0 10px;
     font-size: 18px;
@@ -40,7 +41,8 @@
 }
 
 .table-block {
-  width: 40%;
+  width: 65%;
+  margin: 0 auto;
   display: flex;
   .left-block{
     flex: 2;

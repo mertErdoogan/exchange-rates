@@ -344,10 +344,11 @@ template {
 }
 
 .date-select-block {
-  margin: 0 0 50px;
+  width: 50%;
+  margin: 0 auto 150px;
 }
 .date-select-block select {
-  width: 15%;
+  width: 100%;
   height: 50px;
   padding: 0 10px 0 10px;
   font-size: 18px;
@@ -372,7 +373,8 @@ template {
 }
 
 .table-block {
-  width: 40%;
+  width: 65%;
+  margin: 0 auto;
   display: flex;
 }
 .table-block .left-block {
